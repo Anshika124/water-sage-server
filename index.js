@@ -13,8 +13,15 @@ app.use(bodyParser.json());
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('Water Sage');
 });
+
+const userRouter = require('./src/routes/user.js');
+app.use('/users', userRouter);   
+const postRouter = require('./src/routes/post.js');
+app.use('/posts', postRouter);   
+
+
 
 
 app.listen(port, () => {
